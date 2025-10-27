@@ -3,19 +3,19 @@ import { Droplets, Zap, Waves, Activity, Sparkles, TrendingUp, CheckCircle2, Ale
 
 const PlasmoniAIAgent = () => {
   const [formData, setFormData] = useState({
-    pH: '7',
-    ES: '2000',
-    TDS: '1000',
-    Turbidity: '50',
-    OandG: '20',
-    CO2: '40',
-    Ni: '1',
-    Zn: '1',
-    Cu: '0.5',
-    CrVI: '0.1',
-    Fe: '2',
-    Temp: '25',
-    Flow: '1'
+    pH: '5.2',
+  ES: '4200',
+  TDS: '2400',
+  Turbidity: '90',
+  OandG: '60',
+  CO2: '75',
+  Ni: '3',
+  Zn: '2.5',
+  Cu: '0.8',
+  CrVI: '0.2',
+  Fe: '3.5',
+  Temp: '25',
+  Flow: '0.5'
   });
 
   const [loading, setLoading] = useState(false);
