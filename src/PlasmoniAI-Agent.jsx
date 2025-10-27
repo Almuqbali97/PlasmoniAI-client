@@ -204,6 +204,35 @@ const PlasmoniAIAgent = () => {
                 </div>
               </div>
 
+{/* Matched Sample Visualization */}
+{result.image && (
+  <div className="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-xl border-2 border-indigo-100 p-4 sm:p-6 animate-fadeIn animation-delay-700 hover:shadow-2xl hover:scale-[1.01] transition-all duration-300">
+    <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg animate-pulse-slow flex-shrink-0">
+        <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+      </div>
+      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Matched Sample Visualization</h3>
+    </div>
+    <div className="relative rounded-xl overflow-hidden shadow-lg">
+      <img
+        src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}${result.image}`}
+        alt="Matched Sample"
+        className="w-full h-auto object-cover"
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src =
+            'data:image/svg+xml,%3Csvg width="400" height="300" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="400" height="300" fill="%23f3f4f6"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%239ca3af" font-family="system-ui" font-size="18"%3EImage not available%3C/text%3E%3C/svg%3E';
+        }}
+      />
+      {result.sample && (
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+          <p className="text-white font-bold text-sm sm:text-base">{result.sample}</p>
+        </div>
+      )}
+    </div>
+  </div>
+)}
+
               {/* AI Analysis */}
               {result.aiAnalysis && (
                 <div className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 text-white animate-fadeIn animation-delay-800 hover:shadow-3xl hover:scale-[1.01] transition-all duration-300">
